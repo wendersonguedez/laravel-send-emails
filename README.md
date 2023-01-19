@@ -1,4 +1,4 @@
-# Envio de e-mails com PHP + Laravel
+# Envio de e-mails utilizando Laravel 9
 
 #### Projeto prático utilizando PHP + Laravel para o envio de e-mails, onde é realizada toda a validação de um email e a ativação de uma conta.
 
