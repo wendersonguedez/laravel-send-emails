@@ -122,7 +122,7 @@ class ExampleMail extends Mailable
 
 # Utilizando Mailtrap como serviço SMTP
 
-#### Após realizar o cadastro na plataforma, é necessário atualizar o arquivo .env com as credencias fornecidas pela plataforma.
+#### Após realizar o cadastro na plataforma, é necessário atualizar o arquivo .env com as credenciais fornecidas pela plataforma.
 
 -   **.env**
 
