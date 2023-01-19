@@ -78,14 +78,17 @@ class ExampleMail extends Mailable
     public function envelope()
     {
         return new Envelope(
-            from: new Address('jeffrey@example.com', 'Jeffrey Way'),
-            subject: 'Order Shipped',
+            # remetente do e-mail (quem está enviando).
+            from: new Address('wenderson@gmail.com', 'Wenderson'),
+            # assunto do e-mail.
+            subject: 'Apenas teste',
         );
     }
 
     public function content()
     {
         return new Content(
+            # path da view.
             view: 'emails.users.example',
         );
     }
@@ -108,3 +111,44 @@ class ExampleMail extends Mailable
 #### Após a criação da pasta emails dentro do diretório views, é necessário criar um arquivo **_.blade_** dentro da pasta emails.
 
 > -   path: views/emails/users/example.blade.php
+
+#### Arquivo blade somente para teste:
+
+```html
+<h1>H1 do email</h1>
+
+<p>Paragráfo</p>
+```
+
+# Utilizando Mailtrap como serviço de SMTP
+
+#### Após realizar o cadastro na plataforma, é necessário atualizar o arquivo .env com as credencias fornecidas pela plataforma.
+
+-   **.env**
+
+```
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=*****
+MAIL_USERNAME=****************
+MAIL_PASSWORD=****************
+MAIL_ENCRYPTION=tls
+```
+
+#### Após atualizar o arquivo .env com as credenciais do servidor SMTP, podemos realizar um envio de e-mail como teste.
+
+# Enviando um e-mail de fato
+
+#### Como teste, podemos realizar o envio do e-mail através de uma rota.
+
+```php
+Route::get('/test-email', function () {
+    Mail::to('wendersonguedes6@gmail.com')->send(new ExampleMail());
+
+    return 'email enviado';
+});
+```
+
+-   Ao acessar a rota **_/test-email_** o e-mail será enviado e exibirá uma mensagem caso seja enviado com sucesso.
+
+-   **_Mail::to('wendersonguedes6@gmail.com')->send(new ExampleMail())_** fica responsável por realizar o envio da mensagem para o e-mail passado como parâmetro.
