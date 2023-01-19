@@ -120,7 +120,7 @@ class ExampleMail extends Mailable
 <p>Paragráfo</p>
 ```
 
-# Utilizando Mailtrap como serviço de SMTP
+# Utilizando Mailtrap como serviço SMTP
 
 #### Após realizar o cadastro na plataforma, é necessário atualizar o arquivo .env com as credencias fornecidas pela plataforma.
 
