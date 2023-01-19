@@ -124,7 +124,7 @@ class ExampleMail extends Mailable
 
 #### Após realizar o cadastro na plataforma, é necessário atualizar o arquivo .env com as credenciais fornecidas pela plataforma.
 
--   Arquivo **_.env_** atualizado
+-   Arquivo .env atualizado
 
 ```
 MAIL_MAILER=smtp
