@@ -34,6 +34,8 @@
 
     -   Caso esteja sendo utilizado o serviço **_stmp_**, as configurações acima serão setadas para este serviço.
 
+    ## Configuração das variáveis de ambiente para o envio de um e-mail:
+
     ***
 
     ```js
