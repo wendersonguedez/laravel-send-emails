@@ -174,4 +174,4 @@ Route::get('/test-email', function () {
 
 -   Após isso, o corpo do e-mail será renderizado no browser, facilitando a visualização de como está ficando.
 
-# Passar dados para e view de e-mail
+# Passar dados para view de e-mail
