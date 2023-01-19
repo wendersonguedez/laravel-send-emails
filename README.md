@@ -55,8 +55,10 @@
 
 # Criando classe para envio de e-mail
 
-### Criando a classe utilizando o artisan
+#### Criando a classe utilizando o artisan
 
 ```php
 php artisan make:mail ExampleMail
 ```
+
+> A classe criada se encontra dentro de **_app/Mail/ExampleMail.php_**
