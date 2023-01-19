@@ -13,6 +13,7 @@
     ```
 
     -   O bloco do código acima, verifica se a variável **_MAIL_MAILER_** possui algum valor definido, que se encontra no arquivo .env, e caso não tenha nenhum valor, é definido o valor default **_smtp_**.
+    -   **_Simple Mail Transfer Protocol (SMTP)_** nada mais é que um servidor para receber e-mails enviados por outra pessoa.
 
     ```php
     'mailers' => [
@@ -30,3 +31,17 @@
     ```
 
     -   Caso esteja sendo utilizado o serviço **_stmp_**, as configurações acima serão setadas para este serviço.
+
+    ```php
+    MAIL_MAILER=smtp
+    MAIL_HOST=mailhog
+    MAIL_PORT=1025
+    MAIL_USERNAME=null
+    MAIL_PASSWORD=null
+    MAIL_ENCRYPTION=null
+    MAIL_FROM_ADDRESS="hello@example.com"
+    MAIL_FROM_NAME="${APP_NAME}"
+    ```
+
+    -   MAIL_MAILER: Definir o serviço de email que será utilizado.
+    -   MAIL_HOST: Autenticação do servidor de smtp
