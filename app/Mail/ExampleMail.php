@@ -3,6 +3,7 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
+use Illuminate\Mail\Mailables\Address;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
@@ -31,7 +32,8 @@ class ExampleMail extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'Example Mail',
+            from: new Address('wenderson@gmail.com', 'wenderson guedes'),
+            subject: 'email de exemplo',
         );
     }
 
@@ -43,7 +45,7 @@ class ExampleMail extends Mailable
     public function content()
     {
         return new Content(
-            view: 'view.name',
+            view: 'emails.users.example',
         );
     }
 

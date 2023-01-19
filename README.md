@@ -70,48 +70,41 @@ class ExampleMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
-        //
+
     }
 
-    /**
-     * Get the message envelope.
-     *
-     * @return \Illuminate\Mail\Mailables\Envelope
-     */
     public function envelope()
     {
         return new Envelope(
-            subject: 'Example Mail',
+            from: new Address('jeffrey@example.com', 'Jeffrey Way'),
+            subject: 'Order Shipped',
         );
     }
 
-    /**
-     * Get the message content definition.
-     *
-     * @return \Illuminate\Mail\Mailables\Content
-     */
     public function content()
     {
         return new Content(
-            view: 'view.name',
+            view: 'emails.users.example',
         );
     }
 
-    /**
-     * Get the attachments for the message.
-     *
-     * @return array
-     */
     public function attachments()
     {
         return [];
     }
 }
 ```
+
+-   public function \_\_construct() : Dentro do método **_\_\_construct_**, podemos definir os dados que serão passados para essa class, sempre que receber e-mails.
+
+-   public function envelope() : Nesse método, é realizada a configuração do remetente do e-mail, ou seja, quem está enviando o e-mail.
+
+-   public function content() : Nesse método, é definida a view que será renderizada no corpo do e-mail. Seguindo um padrão, é definida uma pasta **_emails_** dentro do diretório **_views_**, onde terá as views com seus respectivos nomes.
+
+# Criação da view que será renderizada dentro do corpo do e-mail
+
+#### Após a criação da pasta emails dentro do diretório views, é necessário criar um arquivo **_.blade_** dentro da pasta emails.
+
+> -   path: views/emails/users/example.blade.php
