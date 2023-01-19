@@ -2,7 +2,7 @@
 
 #### Projeto prático utilizando PHP + Laravel para o envio de e-mails, onde é realizada toda a validação de um email e a ativação de uma conta.
 
-# Configurações de e-mail no Laravel
+# Configurações do arquivo de e-mail no Laravel
 
 -   **mail.php**
 
@@ -32,11 +32,9 @@
     ]
     ```
 
-    -   Caso esteja sendo utilizado o serviço **_stmp_**, as configurações acima serão setadas para este serviço.
+    -   Caso esteja sendo utilizado o serviço **_smtp_**, as configurações acima serão setadas para este serviço.
 
-    ## Configuração das variáveis de ambiente para o envio de um e-mail:
-
-    ***
+    # Configuração das variáveis de ambiente para o envio de um e-mail
 
     ```js
     MAIL_MAILER = smtp;
@@ -49,11 +47,11 @@
     MAIL_FROM_NAME = "${APP_NAME}";
     ```
 
-    -   MAIL_MAILER: Definir o serviço de email que será utilizado.
-    -   MAIL_HOST: URL de autenticação do servidor de smtp.
-    -   MAIL_PORT: Porta do servidor smtp.
-    -   MAIL_USERNAME: E-mail do usuário.
-    -   MAIL_PASSWORD: Senha do e-mail do usuário.
+    -   MAIL_MAILER: Define o serviço de email que será utilizado.
+    -   MAIL_HOST: URL de autenticação do servidor smtp.
+    -   MAIL_PORT: Porta do servidor.
+    -   MAIL_USERNAME: E-mail concedido pelo servidor SMTP.
+    -   MAIL_PASSWORD: Senha concedida pelo servidor SMTP.
     -   MAIL_ENCRYPTION: Criptografia utilizada no servidor.
     -   MAIL_FROM_ADDRESS: Remetente dos e-mail (normalmente é definido um default, caso nenhum seja definido).
     -   MAIL_FROM_NAME: Nome da aplicação.

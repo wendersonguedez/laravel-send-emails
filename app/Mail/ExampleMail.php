@@ -31,8 +31,9 @@ class ExampleMail extends Mailable
      */
     public function envelope()
     {
+        $email = "wendersongds@gmail.com";
         return new Envelope(
-            from: new Address('wenderson@gmail.com', 'wenderson guedes'),
+            from: new Address($email, 'wenderson guedes'),
             subject: 'email de exemplo',
         );
     }
