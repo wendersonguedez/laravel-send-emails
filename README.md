@@ -67,8 +67,6 @@ php artisan make:mail ExampleMail
 
 > A classe criada se encontra dentro de **_app/Mail/ExampleMail.php_**
 
----
-
 #### Estrutura da classe criada:
 
 ```php
