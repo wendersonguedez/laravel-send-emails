@@ -44,4 +44,19 @@
     ```
 
     -   MAIL_MAILER: Definir o serviço de email que será utilizado.
-    -   MAIL_HOST: Autenticação do servidor de smtp
+    -   MAIL_HOST: URL de autenticação do servidor de smtp.
+    -   MAIL_PORT: Porta do servidor smtp.
+    -   MAIL_USERNAME: E-mail do usuário.
+    -   MAIL_PASSWORD: Senha do e-mail do usuário.
+    -   MAIL_ENCRYPTION: Criptografia utilizada no servidor.
+    -   MAIL_FROM_ADDRESS: Remetente dos e-mail (normalmente é definido um default, caso nenhum seja definido).
+    -   MAIL_FROM_NAME: Nome da aplicação.
+    -   Alguns dados são fornecidos pelo servidor de SMTP.
+
+# Criando classe para envio de e-mail
+
+### Criando a classe utilizando o artisan
+
+```php
+php artisan make:mail ExampleMail
+```
