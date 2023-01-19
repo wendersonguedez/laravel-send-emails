@@ -20,7 +20,8 @@ Route::get('/', function () {
 });
 
 Route::get('/test-email', function () {
-    Mail::to('wendersonguedes6@gmail.com')->send(new ExampleMail());
+    return (new ExampleMail())->render();
+    Mail::to('wendersonguedez4@gmail.com')->send(new ExampleMail());
 
     return 'email enviado';
 });

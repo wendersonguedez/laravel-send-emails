@@ -33,7 +33,7 @@ class ExampleMail extends Mailable
     {
         $email = "wendersongds@gmail.com";
         return new Envelope(
-            from: new Address($email, 'wenderson guedes'),
+            from: new Address($email, 'wenderson'),
             subject: 'email de exemplo',
         );
     }

@@ -158,3 +158,22 @@ Route::get('/test-email', function () {
 -   Ao acessar a rota **_/test-email_** o e-mail será enviado e exibirá uma mensagem caso seja enviado com sucesso.
 
 -   **_Mail::to('wendersonguedes6@gmail.com')->send(new ExampleMail())_** fica responsável por realizar o envio da mensagem para o e-mail passado como parâmetro.
+
+# Visualizar o corpo do e-mail no browser
+
+#### É possível visualizar no próprio browser como está o corpo do e-mail enviado.
+
+```php
+Route::get('/test-email', function () {
+    return (new ExampleMail())->render();
+    Mail::to('wendersonguedes6@gmail.com')->send(new ExampleMail());
+
+    return 'email enviado';
+});
+```
+
+-   É necessário criar um objeto da class **_ExampleMail_** e utilizar o método render no momento da instância do objeto.
+
+-   Após isso, o corpo do e-mail será renderizado no browser, facilitando a visualização de como está ficando.
+
+# Passar dados para e view de e-mail
