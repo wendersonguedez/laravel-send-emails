@@ -12,4 +12,4 @@
     'default' => env('MAIL_MAILER', 'smtp'),
     ```
 
-    -   Pega o valor definido na variável 'MAIL_MAILER', que se encontra no arquivo .env, e caso não tenha nenhum valor, é definido o valor default 'smtp'.
+    -   O bloco do código acima, verifica se a variável 'MAIL_MAILER' possui algum valor definido, que se encontra no arquivo .env, e caso não tenha nenhum valor, é definido o valor default 'smtp'.
