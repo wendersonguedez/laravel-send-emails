@@ -124,7 +124,7 @@ class ExampleMail extends Mailable
 
 #### Após realizar o cadastro na plataforma, é necessário atualizar o arquivo .env com as credenciais fornecidas pela plataforma.
 
--   Arquivo .env atualizado
+-   Arquivo .env atualizado:
 
 ```
 MAIL_MAILER=smtp
@@ -135,7 +135,7 @@ MAIL_PASSWORD=****************
 MAIL_ENCRYPTION=tls
 ```
 
-#### Após atualizar o arquivo .env com as credenciais do servidor SMTP, podemos realizar um envio de e-mail como teste.
+#### Após atualizar o arquivo .env com as credenciais do servidor SMTP, podemos realizar um envio de um e-mail como teste.
 
 # Enviando um e-mail de fato
 
