@@ -248,7 +248,7 @@ public function attachments()
 
 #
 
-## Especificar o nome e o tipo MIME do anexo
+### Especificar o nome e o tipo MIME do anexo
 
 ```php
 public function attachments()
