@@ -239,9 +239,9 @@ public function content()
 
 # Enviar e-mails com anexo
 
-#### Fornecendo o caminho do anexo
-
 > -   Toda a tratativa é realizada no método **_attachments()_**.
+
+#### Fornecendo o caminho do anexo:
 
 ```php
 public function attachments()
@@ -258,7 +258,7 @@ public function attachments()
 
 #
 
-#### Especificar o nome e o tipo MIME do anexo
+#### Especificar o nome e o tipo MIME do anexo:
 
 ```php
 public function attachments()
