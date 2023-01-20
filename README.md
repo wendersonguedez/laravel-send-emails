@@ -184,6 +184,8 @@ Route::get('/test-email', function () {
 php artisan migrate
 ```
 
+#
+
 #### Para cenário de teste, vamos realizar a criação de um usuário fictício utilizando o método **_factory_**.
 
 ```php
@@ -198,6 +200,8 @@ Route::get('/test-email', function () {
 
 -   Todos os dados do usuário criado são passados como argumentos para a classe **_ExampleMail_**, onde são recebidos no método **_\_\_construct_**.
 
+#
+
 ```php
 public function __construct(private User $user)
 {
@@ -206,6 +210,8 @@ public function __construct(private User $user)
 ```
 
 -   O método **_\_\_construct_** está esperando um objeto da model **_User_**, que será armazenado na variável **_$user_**. Essa variável é privada, garantindo que somente a própria classe poderá acessá-la.
+
+#
 
 ```php
 public function content()
@@ -220,6 +226,8 @@ public function content()
 ```
 
 -   Para que os dados do usuário possam ser acessados na view, é necessário utilizar o parâmetro **_with_**, onde podemos passar um só valor ou um array com vários valores. No código acima, estamos passando um array, onde o índice **_'user'_** possui os dados obtidos do método **_\_\_construct_**.
+
+#
 
 #### Acessando os dados do usuário na view:
 
