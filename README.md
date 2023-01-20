@@ -239,8 +239,6 @@ public function content()
 
 # Enviar e-mails com anexo
 
-> -   Toda a tratativa é realizada no método **_attachments()_**.
-
 #### Fornecendo o caminho do anexo:
 
 ```php
@@ -274,3 +272,58 @@ public function attachments()
 -   É possível também especificar o nome de exibição e tipo MIME do anexo enviado, utilizando os métodos **_as_** e **_withMime_**.
 
 -   **MIME** é uma norma utilizada para indicar o tipo de dado que um arquivo (anexo) contém, nesse caso, se trata de um arquivo **PDF**.
+
+# Renderizar imagens no corpo de um e-mail
+
+#### Para fins de teste, um arquivo de imagem foi salvo em **_storage/app_**, para que ela possa ser enviada junto com a mensagem de e-mail.
+
+```php
+public function content()
+{
+    return new Content(
+        view: 'emails.users.example',
+        with: [
+            'user' => $this->user,
+            'imageExample' => storage_path('app/image-test.png')
+        ],
+    );
+}
+```
+
+-   A imagem está sendo recuperada através do método **_storage_path_**, que busca o arquivo através do path passada como parâmetro, e logo em seguida sendo armazenada em **_'imageExample'_**.
+
+#
+
+```php
+<img src="{{ $message->embed($imageExample) }}" alt="">
+```
+
+-   Para renderizar a imagem no corpo do e-mail, é necessário utilizar o método **_embed_**, que é possível acessa-ló através da variável **_$message_**. Como parâmetro, utilizamos a variável $imageExample, que foi passada através do parâmetro **_with_** (código anterior).
+
+# Renderizar estilo markdown no corpo de um e-mail.
+
+#### Para fins de teste, vamos gerar uma nova class de e-mail através do artisan:
+
+```php
+php artisan make:mail UserWelcome --markdown=emails.users.welcome
+```
+
+-   O comando acima, além de gerar uma classe para envio de emails, também declara que nela será utilizada uma view markdown. **_--markdown=emails.users.welcome_** indica o path que essa view será armazenada.
+
+#
+
+```php
+<x-mail::message>
+# Introduction
+
+The body of your message.
+
+<x-mail::button :url="''">
+Button Text
+</x-mail::button>
+
+Thanks,<br>
+{{ config('app.name') }}
+</x-mail::message>
+
+```
