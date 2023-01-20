@@ -239,7 +239,9 @@ public function content()
 
 # Enviar e-mails com anexo
 
-#### Toda a tratativa é realizada no método **_attachments()_**.
+### Fornecendo o caminho do anexo
+
+> -   Toda a tratativa é realizada no método **_attachments()_**.
 
 ```php
 public function attachments()
