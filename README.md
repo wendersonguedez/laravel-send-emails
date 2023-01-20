@@ -246,6 +246,8 @@ public function attachments()
 -   A primeira forma que temos para enviar um e-mail com anexo, é fornecendo o caminho do arquivo para o método **_fromPath_**.
 -   No exemplo acima, estou enviando como anexo o arquivo **_test.txt_**, que se encontra no path **_storage/app/test.txt_**. **_storage_path_** é um método que aponta para as pastas dentro do diretório **_storage_**.
 
+#
+
 ```php
 public function attachments()
 {
