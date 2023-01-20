@@ -175,3 +175,88 @@ Route::get('/test-email', function () {
 -   Após isso, o corpo do e-mail será renderizado no browser, facilitando a visualização de como está ficando.
 
 # Passar dados para view de e-mail
+
+#### Primeiramente é necessário criar a tabela de usuários e posteriormente criar um usuário, para que possamos utilizar seus dados na view de e-mail.
+
+-   Rodar a migrate para que a tabela seja criada:
+
+```php
+php artisan migrate
+```
+
+#### Para cenário de teste, vamos realizar a criação de um usuário fictício utilizando o método **_factory_**.
+
+```php
+Route::get('/test-email', function () {
+    $user = User::factory()->create();
+    Mail::to('wendersonguedez4@gmail.com')
+        ->send(new ExampleMail($user));
+
+    return 'email enviado';
+});
+```
+
+-   Todos os dados do usuário criado são passados como argumentos para a classe **_ExampleMail_**, onde são recebidos no método **_\_\_construct_**.
+
+```php
+public function __construct(private User $user)
+{
+    #
+}
+```
+
+-   O método **_\_\_construct_** está esperando um objeto da model **_User_**, que será armazenado na variável **_$user_**. Essa variável é privada, garantindo que somente a própria classe poderá acessá-la.
+
+```php
+public function content()
+{
+    return new Content(
+        view: 'emails.users.example',
+        with: [
+            'user' => $this->user
+        ],
+    );
+}
+```
+
+-   Para que os dados do usuário possam ser acessados na view, é necessário utilizar o parâmetro **_with_**, onde podemos passar um só valor ou um array com vários valores. No código acima, estamos passando um array, onde o índice **_'user'_** possui os dados obtidos do método **_\_\_construct_**.
+
+#### Acessando os dados do usuário na view:
+
+```php
+<h1>Olá {{ $user->name }}</h1>
+
+<p>Paragráfo</p>
+```
+
+# Enviar e-mails com anexo
+
+#### Toda a tratativa é realizada no método **_attachments()_**.
+
+```php
+public function attachments()
+{
+    return [
+        // Attachment::fromPath('/path/to/file'),
+        Attachment::fromPath(storage_path('app/test.txt')),
+    ];
+}
+```
+
+-   A primeira forma que temos para enviar um e-mail com anexo, é fornecendo o caminho do arquivo para o método **_fromPath_**.
+-   No exemplo acima, estou enviando como anexo o arquivo **_test.txt_**, que se encontra no path **_storage/app/test.txt_**. **_storage_path_** é um método que aponta para as pastas dentro do diretório **_storage_**
+
+```php
+public function attachments()
+{
+    return [
+        Attachment::fromPath('/path/to/file')
+                ->as('name.pdf')
+                ->withMime('application/pdf'),
+    ];
+}
+```
+
+-   É possível também especificar o nome de exibição e tipo MIME do anexo enviado, utilizando os métodos **_as_** e **_withMime_**.
+
+-   **MIME** é uma norma utilizada para indicar o tipo de dado que um arquivo (anexo) contém, nesse caso, se trata de um arquivo **PDF**.
