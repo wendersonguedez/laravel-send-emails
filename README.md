@@ -352,8 +352,8 @@ Route::get('/test-email-markdown', function () {
 });
 ```
 
+> -   Inicialmente, ao acessar a rota definida, foi retornada uma exception: **_Call to undefined function mb_strcut()_**, que foi resolvida ao instalar a extensão mbstring, de acordo com a versão do **_PHP_** utilizada no projeto.
+
 -   Para fins de teste, criaremos uma nova rota para realizar o envio de e-mails utilizando markdown.
 
 -   Ao acessar a rota definida, será exibido no browser a estrutura do nosso arquivo markdown que é gerado por default, como foi mostrado mais acima.
-
-> -   Inicialmente, ao acessar a rota definida, foi retornada uma exception: **_Call to undefined function mb_strcut()_**, que foi resolvida ao instalar a extensão mbstring, de acordo com a versão do **_PHP_** utilizada no projeto.
