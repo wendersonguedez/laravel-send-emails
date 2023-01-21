@@ -327,3 +327,33 @@ Thanks,<br>
 </x-mail::message>
 
 ```
+
+-   Código acima foi gerado através do comando anterior utilizando o artisan. Ele utiliza uma combinação de componentes Blade e sintaxe Markdown.
+
+#
+
+```php
+public function content()
+{
+    return new Content(
+        markdown: 'emails.users.welcome',
+    );
+}
+```
+
+-   A diferença significativa está que agora ao invés de retornar uma view do tipo **_blade_**, estará retornando uma view do tipo **_markdown_**.
+
+#
+
+```php
+Route::get('/test-email-markdown', function () {
+    return (new UserWelcome())->render();
+    return 'email markdown enviado';
+});
+```
+
+-   Para fins de teste, criaremos uma nova rota para realizar o envio de e-mails utilizando markdown.
+
+-   Ao acessar a rota definida, será exibido no browser a estrutura do nosso arquivo markdown que é gerado por default, como foi mostrado mais acima.
+
+> -   Inicialmente, ao acessar a rota definida, foi retornada uma exception: **_Call to undefined function mb_strcut()_**, que foi resolvida ao instalar a extensão mbstring, de acordo com a versão do **_PHP_** utilizada no projeto.
