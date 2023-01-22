@@ -53,8 +53,8 @@
     -   MAIL_USERNAME: E-mail concedido pelo servidor SMTP.
     -   MAIL_PASSWORD: Senha concedida pelo servidor SMTP.
     -   MAIL_ENCRYPTION: Criptografia utilizada no servidor.
-    -   MAIL_FROM_ADDRESS: Remetente dos e-mail (normalmente é definido um default, caso nenhum seja definido).
-    -   MAIL_FROM_NAME: Nome da aplicação.
+    -   MAIL_FROM_ADDRESS: Quem está enviando o e-mail (normalmente é definido um default, caso nenhum seja definido).
+    -   MAIL_FROM_NAME: Nome da aplicação/Nome de quem está enviando o e-mail.
     -   Alguns dados são fornecidos pelo servidor de SMTP.
 
 # Criando classe para envio de e-mail
