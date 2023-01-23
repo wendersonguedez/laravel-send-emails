@@ -366,6 +366,25 @@ Route::get('/test-email-markdown', function () {
 php artisan vendor:publish --tag=laravel-mail
 ```
 
--   O comando acima irá copiar o diretório das assets que iremos personalizar, para o diretório **_resources_**. Com isso, podemos personalizar essas views.
+-   O comando acima irá copiar o diretório das assets que iremos personalizar, para o diretório **_resources_**. Com isso, podemos personalizar as views.
 
 > -   Path das views: **_resources/views/vendor/mail_**
+
+```php
+'markdown' => [
+    'theme' => 'default',
+
+    'paths' => [
+        resource_path('views/vendor/mail'),
+    ],
+],
+```
+
+-   O código acima se encontra dentro de **_config/mail.php_**, e se trata das configurações das views de markdown.
+
+    -   'theme' => 'default' : Indica qual o tema CSS utilizado nas views markdown, que se encontra em **_resources/views/vendor/mail/html/themes/default.css_**. E através desse arquivo, podemos personalizar
+        a aparência dos e-mails;
+
+    -   'paths' => [] : Caminho do diretório onde se encontra as assets dos e-mails;
+
+    -   Todas as informações podes acima podem ser alteradas. Caso deseja alterar o nome do tema CSS ou até mesmo o nome do diretório, basta apenas no bloco de código acina, dentro de **_config/mail.php_**;
