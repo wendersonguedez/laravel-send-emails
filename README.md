@@ -357,3 +357,15 @@ Route::get('/test-email-markdown', function () {
 -   Para fins de teste, criaremos uma nova rota para realizar o envio de e-mails utilizando markdown.
 
 -   Ao acessar a rota definida, será exibido no browser a estrutura do nosso arquivo markdown que é gerado por default, como foi mostrado mais acima.
+
+# Personalizar e-mails markdown
+
+#### O próprio laravel disponibiliza uma estrutura markdown bem legal, no entanto, toda essa estrutura pode ser personalizada. Para isso, é necessário publicar as **_assets/tags_** da view markdown através do artisan.
+
+```php
+php artisan vendor:publish --tag=laravel-mail
+```
+
+-   O comando acima irá copiar o diretório das assets que iremos personalizar, para o diretório **_resources_**. Com isso, podemos personalizar essas views.
+
+> -   Path das views: **_resources/views/vendor/mail_**
