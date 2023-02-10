@@ -2,17 +2,14 @@
 
 namespace App\Mail;
 
-use App\Models\User;
 use Illuminate\Bus\Queueable;
-use Illuminate\Mail\Mailables\Address;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
-use Illuminate\Mail\Mailables\Attachment;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class ExampleMail extends Mailable
+class UserWelcome extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -21,9 +18,9 @@ class ExampleMail extends Mailable
      *
      * @return void
      */
-    # está esperando um objeto da model User. Os dados de $user poderão ser acessados na view 'example'. 
-    public function __construct(private User $user)
+    public function __construct()
     {
+        //
     }
 
     /**
@@ -33,11 +30,8 @@ class ExampleMail extends Mailable
      */
     public function envelope()
     {
-        $email = "wendersongds@gmail.com";
-
         return new Envelope(
-            from: new Address($email, 'wenderson'),
-            subject: 'email de exemplo',
+            subject: 'Seja Bem Vindo',
         );
     }
 
@@ -49,11 +43,7 @@ class ExampleMail extends Mailable
     public function content()
     {
         return new Content(
-            view: 'emails.users.example',
-            with: [
-                'user' => $this->user,
-                'imageExample' => storage_path('app/image-test.png')
-            ],
+            markdown: 'emails.users.welcome',
         );
     }
 
@@ -64,10 +54,6 @@ class ExampleMail extends Mailable
      */
     public function attachments()
     {
-        return [
-            Attachment::fromPath(storage_path('app/certificado.pdf'))
-                ->as('certificado-wenderson.pdf')
-                ->withMime('application/pdf')
-        ];
+        return [];
     }
 }
